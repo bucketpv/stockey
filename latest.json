@@ -1,0 +1,11 @@
+﻿{
+    "platforms":  {
+                      "windows-x86_64":  {
+                                             "signature":  "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTdm11eEhXeW42b1RMNVpENkFNd3NBYTNvZ1BSZk02WUZFNVZsRmJnSkJuY1RwdnRkcDhvMHhVQXZ5MHFZOGZwYmlyRXpSVXNyYkJZUTdxNzhGdUlOSG9rdS9nbWtMK2dnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgyMDEwMDUwCWZpbGU6U3RvY2tleV8xLjEwLjZfeDY0X2VzLUVTLm1zaQpYT2pPUktka2NTZEJyR0pGQnM3dDBlWGhZdTcvdU05TUw3NERSOXBnTHBPeUJ1Zm5yVkF2NHFoN3duZ3V5cEY3VlNtdHVHaCtxQXhQYks3T0dCdWRDQT09Cg==",
+                                             "url":  "https://github.com/bucketpv/stockey/releases/download/v1.10.6/Stockey_1.10.6_x64_es-ES.msi"
+                                         }
+                  },
+    "pub_date":  "2026-06-21T02:47:30Z",
+    "version":  "1.10.6",
+    "notes":  "ActualizaciÃ³n de Stockey v1.10.6"
+}
