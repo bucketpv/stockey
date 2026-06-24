@@ -152,46 +152,226 @@
     </div>
   </div>
 {/if} 
+<!-- ... El código superior del HTML y JS permanece intacto ... -->
+
 <style>
-  .pricing-section { padding: 90px 0; background: #f8fafc; width: 100%; }
-  
-  
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 400px)); 
-    gap: 32px; 
-    margin-top: 40px; 
+  .pricing-section {
+    padding: 90px 0;
+    background: #f8fafc;
+    width: 100%;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+    gap: 32px;
+    margin-top: 40px;
     align-items: stretch;
     justify-content: center;
   }
-  
-  .pricing-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 32px; display: flex; flex-direction: column; position: relative; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); }
-  .pricing-card.highlighted { border-color: #2563eb; box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.1); transform: scale(1.02); }
-  
-  .pop-badge { position: absolute; top: -12px; left: 32px; background: #2563eb; color: white; font-size: 0.7rem; font-weight: 700; padding: 4px 12px; border-radius: 9999px; display: inline-flex; align-items: center; gap: 4px; }
-  
-  .pricing-card h3 { font-size: 1.2rem; font-weight: 700; color: #0f172a; text-align: left; }
-  .price-box { margin: 16px 0 4px 0; display: flex; align-items: baseline; gap: 4px; justify-content: flex-start; }
-  .amount { font-size: 2.25rem; font-weight: 800; color: #0f172a; }
-  .period { color: #64748b; font-size: 0.9rem; }
-  .monthly-equivalent { font-size: 0.8rem; color: #16a34a; font-weight: 600; margin-bottom: 8px; text-align: left; }
-  .desc { font-size: 0.85rem; color: #475569; min-height: 48px; line-height: 1.5; text-align: left; }
-  
-  .divider { border: 0; border-top: 1px solid #f1f5f9; margin: 20px 0; }
-  
-  .feat-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; flex-grow: 1; padding: 0; }
-  .feat-list li { font-size: 0.85rem; color: #334155; display: flex; align-items: flex-start; gap: 10px; text-align: left; line-height: 1.4; }
-  .text-success { color: #16a34a; flex-shrink: 0; margin-top: 2px; }
-  
-  .btn-tier-action { width: 100%; padding: 12px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; text-align: center; cursor: pointer; transition: background 0.15s; font-family: inherit; display: flex; justify-content: center; align-items: center; border: none; }
-  .btn-primary-tier { background: #2563eb; color: white; }
-  .btn-primary-tier:hover { background: #1d4ed8; }
-  .btn-secondary-tier { background: transparent; color: #2563eb; border: 1px solid #bfdbfe; }
-  .btn-secondary-tier:hover { background: #eff6ff; }
 
-  .modal-backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; z-index: 200; padding: 20px; }
-  .modal-box { background: white; padding: 32px; border-radius: 12px; width: 100%; max-width: 440px; position: relative; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); box-sizing: border-box; }
-  .close-btn { position: absolute; top: 16px; right: 16px; background: transparent; border: none; font-size: 1.5rem; color: #94a3b8; cursor: pointer; }
-  .modal-input { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.9rem; outline: none; font-family: inherit; box-sizing: border-box; }
-  .modal-input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
-  .badge-accent { background: #eff6ff; color: #2563eb; padding: 4px 12px; border-radius: 9999px; font-size: 0.72rem; font-weight: 700; display: inline-block; }
+  .pricing-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+  }
+
+  .pricing-card.highlighted {
+    border-color: #2563eb;
+    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.1);
+    transform: scale(1.02);
+  }
+
+  .pop-badge {
+    position: absolute;
+    top: -12px;
+    left: 32px;
+    background: #2563eb;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .pricing-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0f172a;
+    text-align: left;
+  }
+
+  .price-box {
+    margin: 16px 0 4px 0;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    justify-content: flex-start;
+  }
+
+  .amount {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #0f172a;
+  }
+
+  .period {
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+
+  .monthly-equivalent {
+    font-size: 0.8rem;
+    color: #16a34a;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+
+  .desc {
+    font-size: 0.85rem;
+    color: #475569;
+    min-height: 48px;
+    line-height: 1.5;
+    text-align: left;
+  }
+
+  .divider {
+    border: 0;
+    border-top: 1px solid #f1f5f9;
+    margin: 20px 0;
+  }
+
+  .feat-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+    flex-grow: 1;
+    padding: 0;
+  }
+
+  .feat-list li {
+    font-size: 0.85rem;
+    color: #334155;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    text-align: left;
+    line-height: 1.4;
+  }
+
+  .text-success {
+    color: #16a34a;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .btn-tier-action {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.15s;
+    font-family: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+  }
+
+  .btn-primary-tier {
+    background: #2563eb;
+    color: white;
+  }
+
+  .btn-primary-tier:hover {
+    background: #1d4ed8;
+  }
+
+  .btn-secondary-tier {
+    background: transparent;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+  }
+
+  .btn-secondary-tier:hover {
+    background: #eff6ff;
+  }
+
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 20px;
+  }
+
+  .modal-box {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 440px;
+    position: relative;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #94a3b8;
+    cursor: pointer;
+  }
+
+  .modal-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+    font-family: inherit;
+    box-sizing: border-box;
+  }
+
+  .modal-input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+
+  .badge-accent {
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: inline-block;
+  }
 </style>
