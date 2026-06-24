@@ -6,21 +6,17 @@
 <section class="hero-section">
   <div class="hero-glow"></div>
   <div class="content-wrapper hero-z text-center">
-    <!-- Cambiamos el badge de versión por uno de prueba gratuita -->
     <span class="badge badge-cyber">
-      🚀 Prueba gratuita de 14 días
+      Prueba gratuita de 14 días
     </span>
-    <!-- Invertimos el gradiente para que destaque "Gestión de inventario" -->
     <h1 class="hero-title">
       <span class="gradient-text">Gestión de inventario.</span><br />
       Sin la nube. Sin lentitud.
     </h1>
-    <!-- Añadimos una frase más empática -->
     <p class="hero-subtitle">
-      Sabemos que no puedes permitirte un sistema lento en hora punta. Stockey almacena tus datos localmente bajo un entorno híbrido de alto rendimiento.
+      Stockey almacena tus datos localmente bajo un entorno híbrido de alto rendimiento.
     </p>
     
-    <!-- Solo un CTA principal, el secundario se convierte en un enlace de texto -->
     <div class="cta-group">
       <button class="btn-primary btn-lg btn-glow-effect" on:click={onDownload}>
         Descargar para Windows <Download size={18} />

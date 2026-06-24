@@ -7,7 +7,7 @@
   <div class="content-wrapper navbar-flex">
     <div class="brand-logo">
       <div class="icon-accent-box"><Package size={18} /></div>
-      <span class="brand-name">Stockey<span class="dot-accent">.</span></span>
+      <span class="brand-name">Stockey</span>
     </div>
     <nav class="nav-links">
       <a href="#features">Características</a>

@@ -4,14 +4,14 @@
   const specs = [
     {
       icon: Monitor,
-      label: "Entorno Operativo",
+      label: "Sistema Operativo",
       value: "Windows 10 / Windows 11",
       detail: "Compatible con arquitecturas estándar de estaciones de trabajo y laptops."
     },
     {
       icon: Cpu,
       label: "Conectividad",
-      value: "Ejecución 100% Local Autónoma",
+      value: "Ejecución Local y Autónoma",
       detail: "Funciona sin internet. Sin servidores que configurar. Sin cuotas mensuales."
     },
     {
@@ -32,7 +32,7 @@
           <h2>Especificaciones de Ejecución</h2>
         </div>
         <p class="req-subtitle">
-          Stockey ha sido estructurado para ofrecer el máximo rendimiento sin saturar los recursos de hardware de su empresa. Funciona en cualquier computadora de escritorio destinada a la operación diaria.
+          Stockey ha sido desarrollado para ofrecer el máximo rendimiento sin saturar los recursos de hardware de tu negocio. Funciona en cualquier equipo de escritorio o portatil destinado a la operación diaria.
         </p>
       </div>
 

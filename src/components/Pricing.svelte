@@ -24,13 +24,14 @@
       name: "Licencia Comercial Anual",
       price: "$49.990",
       period: "al año",
-      desc: "Orientado a almacenes y comercios activos que requieren soporte operativo continuo y actualizaciones de estabilidad.",
+      desc: "Pago único anual. Sin contratos de permanencia ni cobros automáticos en su tarjeta.",
       features: [
         "Todo lo de la Licencia de Evaluación", 
         "Módulo avanzado de proveedores", 
         "Alertas automáticas de existencias críticas", 
-        "Actualizaciones periódicas de seguridad",
-        "Acceso de solo lectura si vence (tus datos quedan protegidos)"
+        "Actualizaciones periódicas de estabilidad",
+        "Renovación manual (usted decide si continuar el próximo año)",
+        "Acceso de solo lectura si vence (sus datos nunca se bloquean)"
       ],
       action: "Adquirir Licencia Anual",
       highlight: true
@@ -152,7 +153,6 @@
     </div>
   </div>
 {/if} 
-<!-- ... El código superior del HTML y JS permanece intacto ... -->
 
 <style>
   .pricing-section {
