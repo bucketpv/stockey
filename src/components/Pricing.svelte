@@ -10,28 +10,30 @@
       name: "Licencia de Evaluación",
       price: "Gratis",
       period: "por 14 días",
-      desc: "Acceda a la suite operativa completa para evaluar las herramientas en su entorno comercial.",
-      features: ["Control completo de catálogo", "Punto de venta básico", "Métricas básicas de utilidad", "Soporte documentado vía GitHub"],
+      desc: "Acceda a la suite operativa completa para evaluar las herramientas en su entorno comercial sin compromisos.",
+      features: [
+        "Control completo de catálogo", 
+        "Punto de venta básico", 
+        "Métricas básicas de utilidad", 
+        "Soporte documentado vía GitHub"
+      ],
       action: "Iniciar Evaluación",
       highlight: false
     },
     {
       name: "Licencia Comercial Anual",
-      price: "$49.000",
+      price: "$49.990",
       period: "al año",
-      desc: "Orientado a empresas activas que requieren soporte operativo continuo y actualizaciones de estabilidad.",
-      features: ["Todo lo de la Licencia de Evaluación", "Módulo avanzado de proveedores", "Alertas automáticas de existencias críticas", "Actualizaciones periódicas de seguridad"],
+      desc: "Orientado a almacenes y comercios activos que requieren soporte operativo continuo y actualizaciones de estabilidad.",
+      features: [
+        "Todo lo de la Licencia de Evaluación", 
+        "Módulo avanzado de proveedores", 
+        "Alertas automáticas de existencias críticas", 
+        "Actualizaciones periódicas de seguridad",
+        "Acceso de solo lectura si vence (tus datos quedan protegidos)"
+      ],
       action: "Adquirir Licencia Anual",
       highlight: true
-    },
-    {
-      name: "Licencia Permanente",
-      price: "$119.000",
-      period: "pago único",
-      desc: "Para organizaciones que buscan la máxima autonomía del software, eliminando los costos recurrentes.",
-      features: ["Todo lo de la Licencia Anual", "Inversión única vitalicia", "Cero dependencias de renovación anual", "Soporte prioritario uno a uno"],
-      action: "Adquirir de por Vida",
-      highlight: false
     }
   ];
 
@@ -50,7 +52,7 @@
   // Acción para botones de compra (WhatsApp)
   function openWhatsApp(planName) {
     const message = encodeURIComponent(
-      `¡Hola! Estoy interesado en el plan "${planName}" de Stockey. ¿Podrías darme más información?`
+      `¡Hola! Estoy interesado en adquirir la "${planName}" de Stockey. ¿Cuáles son los pasos para la activación?`
     );
     window.open(`https://wa.me/569XXXXXXXX?text=${message}`, '_blank');
   }
@@ -60,12 +62,13 @@
   <div class="content-wrapper">
     <div class="text-center" style="margin-bottom: 50px;">
       <span class="badge badge-accent">Inversión Transparente</span>
-      <h2 class="section-title" style="margin-top: 12px; text-align: center;">Planes estructurados para la sostenibilidad</h2>
+      <h2 class="section-title" style="margin-top: 12px; text-align: center;">Un esquema estructurado para tu negocio</h2>
       <p class="section-subtitle" style="margin: 12px auto 0 auto; text-align: center;">
-        Ofrecemos un esquema comercial claro y directo, eliminando los cobros mensuales imprevistos o las suscripciones obligatorias.
+        Elimina los cobros mensuales imprevistos o las comisiones por venta. Elige la opción que mejor se adapte a tu etapa actual.
       </p>
     </div>
 
+    <!-- Centrado manual si son solo 2 cards para una estética óptima -->
     <div class="pricing-grid">
       {#each tiers as tier}
         <div class="pricing-card" class:highlighted={tier.highlight}>
@@ -77,9 +80,10 @@
             <span class="amount">{tier.price}</span>
             <span class="period">/ {tier.period}</span>
           </div>
-          <!-- Equivalencia mensual para la licencia anual -->
+          
+          <!-- Equivalencia mensual calculada sobre los $49.990 -->
           {#if tier.period === 'al año'}
-            <p class="monthly-equivalent">Equivale a $4.083/mes</p>
+            <p class="monthly-equivalent">Equivale a $4.165 / mes</p>
           {/if}
           <p class="desc">{tier.desc}</p>
           
@@ -95,8 +99,10 @@
             <button class="btn-tier-action btn-secondary-tier" on:click={openRequestModal}>
               {tier.action}
             </button>
-          {:else}
-            <button class="btn-tier-action" class:btn-primary-tier={tier.highlight} class:btn-secondary-tier={!tier.highlight} on:click={() => openWhatsApp(tier.name)}>
+          {/if}
+          
+          {#if tier.price === "$49.990"}
+            <button class="btn-tier-action btn-primary-tier" on:click={() => openWhatsApp(tier.name)}>
               {tier.action}
             </button>
           {/if}
@@ -116,7 +122,7 @@
           <ShieldCheck size={40} style="color: #2563eb; margin-bottom: 12px; margin-inline: auto;" />
           <h3 style="text-align: center;">Prueba gratuita de 14 días</h3>
           <p style="font-size: 0.9rem; color: #475569; margin-top: 8px; text-align: center;">
-            Déjanos tu correo y te enviaremos el código de activación para empezar a usar Stockey sin límites.
+            Déjanos tu correo y te enviaremos el código de activación para empezar a usar Stockey sin límites en tu local.
           </p>
         </div>
         <form on:submit={handleRequest} style="margin-top: 20px;">
@@ -145,13 +151,22 @@
       {/if}
     </div>
   </div>
-{/if}
+</if>
 
 <style>
   .pricing-section { padding: 90px 0; background: #f8fafc; width: 100%; }
-  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 40px; align-items: stretch; }
   
-  .pricing-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 32px; display: flex; flex-direction: column; position: relative; transition: transform 0.2s; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); }
+  /* Ajustamos la grilla para que centre perfectamente las 2 columnas en pantallas grandes */
+  .pricing-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 400px)); 
+    gap: 32px; 
+    margin-top: 40px; 
+    align-items: stretch;
+    justify-content: center;
+  }
+  
+  .pricing-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 32px; display: flex; flex-direction: column; position: relative; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); }
   .pricing-card.highlighted { border-color: #2563eb; box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.1); transform: scale(1.02); }
   
   .pop-badge { position: absolute; top: -12px; left: 32px; background: #2563eb; color: white; font-size: 0.7rem; font-weight: 700; padding: 4px 12px; border-radius: 9999px; display: inline-flex; align-items: center; gap: 4px; }
@@ -160,14 +175,14 @@
   .price-box { margin: 16px 0 4px 0; display: flex; align-items: baseline; gap: 4px; justify-content: flex-start; }
   .amount { font-size: 2.25rem; font-weight: 800; color: #0f172a; }
   .period { color: #64748b; font-size: 0.9rem; }
-  .monthly-equivalent { font-size: 0.8rem; color: #16a34a; font-weight: 600; margin-bottom: 8px; }
+  .monthly-equivalent { font-size: 0.8rem; color: #16a34a; font-weight: 600; margin-bottom: 8px; text-align: left; }
   .desc { font-size: 0.85rem; color: #475569; min-height: 48px; line-height: 1.5; text-align: left; }
   
   .divider { border: 0; border-top: 1px solid #f1f5f9; margin: 20px 0; }
   
   .feat-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; flex-grow: 1; padding: 0; }
-  .feat-list li { font-size: 0.85rem; color: #334155; display: flex; align-items: flex-start; gap: 10px; text-align: left; }
-  .text-success { color: #16a34a; flex-shrink: 0; }
+  .feat-list li { font-size: 0.85rem; color: #334155; display: flex; align-items: flex-start; gap: 10px; text-align: left; line-height: 1.4; }
+  .text-success { color: #16a34a; flex-shrink: 0; margin-top: 2px; }
   
   .btn-tier-action { width: 100%; padding: 12px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; text-align: center; cursor: pointer; transition: background 0.15s; font-family: inherit; display: flex; justify-content: center; align-items: center; border: none; }
   .btn-primary-tier { background: #2563eb; color: white; }
