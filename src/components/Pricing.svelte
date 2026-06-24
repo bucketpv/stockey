@@ -68,7 +68,7 @@
       </p>
     </div>
 
-    <!-- Centrado manual si son solo 2 cards para una estética óptima -->
+
     <div class="pricing-grid">
       {#each tiers as tier}
         <div class="pricing-card" class:highlighted={tier.highlight}>
@@ -81,7 +81,7 @@
             <span class="period">/ {tier.period}</span>
           </div>
           
-          <!-- Equivalencia mensual calculada sobre los $49.990 -->
+  
           {#if tier.period === 'al año'}
             <p class="monthly-equivalent">Equivale a $4.165 / mes</p>
           {/if}
@@ -151,13 +151,11 @@
       {/if}
     </div>
   </div>
-</if>
-
+{/if} 
 <style>
   .pricing-section { padding: 90px 0; background: #f8fafc; width: 100%; }
   
-  /* Ajustamos la grilla para que centre perfectamente las 2 columnas en pantallas grandes */
-  .pricing-grid { 
+  
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(300px, 400px)); 
     gap: 32px; 
