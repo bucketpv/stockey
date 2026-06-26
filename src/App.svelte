@@ -55,6 +55,7 @@
 </script>
 
 <div class="landing-scope">
+<link rel="icon" href="/stockey/favicon.png" type="image/png">
   <Navbar onDownload={downloadRelease} />
   
   <Hero onDownload={downloadRelease} />
