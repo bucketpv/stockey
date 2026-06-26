@@ -12,10 +12,11 @@
       period: "por 14 días",
       desc: "Acceda a la suite operativa completa para evaluar las herramientas en su entorno comercial sin compromisos.",
       features: [
-        "Control completo de catálogo", 
+        "Control completo de catálogo",
+        "Alertas automáticas de existencias críticas",  
         "Punto de venta básico", 
         "Métricas básicas de utilidad", 
-        "Soporte documentado vía GitHub"
+        "Módulo avanzado de proveedores",
       ],
       action: "Iniciar Evaluación",
       highlight: false
@@ -27,11 +28,10 @@
       desc: "Pago único anual. Sin contratos de permanencia ni cobros automáticos en su tarjeta.",
       features: [
         "Todo lo de la Licencia de Evaluación", 
-        "Módulo avanzado de proveedores", 
-        "Alertas automáticas de existencias críticas", 
         "Actualizaciones periódicas de estabilidad",
+        "Reportes detallados",
+        "Importacion de productos desde Excel",
         "Renovación manual (usted decide si continuar el próximo año)",
-        "Acceso de solo lectura si vence (sus datos nunca se bloquean)"
       ],
       action: "Adquirir Licencia Anual",
       highlight: true

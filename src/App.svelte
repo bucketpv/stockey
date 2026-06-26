@@ -50,7 +50,7 @@
   ];
 
   function downloadRelease() {
-    window.location.href = "https://github.com/bucketpv/stockey/releases";
+    window.location.href = "https://github.com/bucketpv/stockey/releases/download/v1.17.1/Stockey_1.17.1_x64-setup.exe";
   }
 </script>
 
@@ -137,8 +137,7 @@
 
   <footer class="footer-container">
     <div class="content-wrapper footer-flex">
-      <p>&copy; 2026 Stockey App. Seguridad y soberanía de datos. Optimizado para Windows.</p>
-      <span class="badge badge-muted">v1.16.4 Stable</span>
+      <p>&copy; 2026 Stockey. Seguridad y soberanía de datos. Optimizado para Windows.</p>
     </div>
   </footer>
 </div>

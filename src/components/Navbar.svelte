@@ -6,7 +6,7 @@
 <header class="navbar-container">
   <div class="content-wrapper navbar-flex">
     <div class="brand-logo">
-      <div class="icon-accent-box"><Package size={18} /></div>
+        <img src="/stockey/favicon.svg" alt="Stockey" style="width: 32px; height: 32px;" />
       <span class="brand-name">Stockey</span>
     </div>
     <nav class="nav-links">
@@ -53,7 +53,7 @@
   }
   .brand-name {
     font-size: 1.2rem;
-    font-weight: 800;
+    font-weight: 900;
     letter-spacing: -0.5px;
     color: #0f172a;
   }
